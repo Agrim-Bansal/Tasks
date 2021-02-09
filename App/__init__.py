@@ -53,7 +53,7 @@ def add():
 @app.route('/getTasks', methods=['GET'])
 def getTasks():
     els = "<div>"
-    for i in collection.find({}, {'_id':1, 'task':1, 'Due':1}):
+    for i in collection.find({}, {'_id':1, 'task':1, 'Due':1}).sort('Due'):
         date = (i['Due']).split('-')
         date = date[::-1]
         
