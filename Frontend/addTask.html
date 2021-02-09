@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href = "./addTask.css"></style>
+        
+        <link rel='stylesheet' href="style.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+    
     </head>
 
     
     <body>
+        <div class='back-container'><button class='btn' id='back' onclick='window.open("index.html", target="_self")'>&#8592</button></div>
 
-        <input id="task"></input>
-
-        <br/>
-
-        <input type="date" id = "date"></input>
+        <input id="task" autocomplete='off'></input>
 
         <br/>
 
-        <button id = "btn">Add the Task</button> 
+        <input type="date" id = "date" placeholder="dd-mm-yyyy" autocomplete='off'></input>
+
+        <br/>
+
+        <button id = "btn" class='btn'>Add the Task</button> 
+
+
         <script src = "./addTask.js"> </script>
 
     </body>

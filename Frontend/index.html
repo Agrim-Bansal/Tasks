@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link rel='stylesheet' href="index.css" />
+    <link rel='stylesheet' href="style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@500&display=swap" rel="stylesheet">
@@ -11,8 +11,12 @@
 
 <body>
 
+    <div class="button-holder">
+    <button class='btn'>Refresh</button>
+    <button class='btn' onclick='window.open("addTask.html", target="_self")'>Add a Task</button>
+    </div>
+
     <div class='container-element'></div>
-    <button class='btn'>Click Me</button>
     <script src='index.js'></script>
 
 </body>

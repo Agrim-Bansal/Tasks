@@ -11,7 +11,6 @@ if (currentDate.getDate().toString.length == 2){
 
 month = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
 date.min = `${currentDate.getFullYear()}-${month[currentDate.getMonth()]}-${day}`
-console.log(date.min)
 
 data = {
     headers : {
@@ -32,9 +31,8 @@ sendData = async () => {
 
     data.body = JSON.stringify(dict)
 
-    res = await fetch('http://localhost:5000/addTask', data);
+    res = await fetch('https://task-list-app-backend.herokuapp.com:5000/addTask', data);
     a = await res.json()
-    console.log(a)
 
 }
 
@@ -57,6 +55,8 @@ b.addEventListener('click', async () => {
                 return alert(`Please enter date later than today `)
             }else if (d[1] == currentDate.getMonth()+1 && d[2] < currentDate.getDate()+1){
                 return alert(`Please enter date later than today `)
+            }else if (d[0] > currentDate.getFullYear()+2){
+                return alert(`Please enter valid date `)
             }
 
             b.style.disabled = true;
