@@ -31,7 +31,7 @@ sendData = async () => {
 
     data.body = JSON.stringify(dict)
 
-    res = await fetch('https://task-list-app-backend.herokuapp.com:5000/addTask', data);
+    res = await fetch('https://task-list-app-backend.herokuapp.com/addTask', data);
     a = await res.json()
 
 }
