@@ -4,6 +4,8 @@ import pymongo
 import urllib
 from os import environ
 from dotenv import load_dotenv 
+from bson.objectid import ObjectId
+
 
 
 load_dotenv()
@@ -51,16 +53,23 @@ def add():
 @app.route('/getTasks', methods=['GET'])
 def getTasks():
     els = "<div>"
-    for i in collection.find({}, {'_id':0, 'task':1, 'Due':1}):
-        print(i)
-        els += f"<div class = 'task-holder'> <div class='task-title'>{ i['task'] }</div> <div class='task-date'> { i['Due'] } </div> </div>"
+    for i in collection.find({}, {'_id':1, 'task':1, 'Due':1}):
+        date = (i['Due']).split('-')
+        date = date[::-1]
+        
+
+        els += f"<div class = 'task-holder'> <div class='task-title'>{ i['task'] }</div> <div class='task-date'> { '-'.join(date) } </div><input id = {i['_id']} type='checkbox' class='task-check'></input> </div>"
     else :
         els += "\n </div>"
-    
-
     return {'body':els}
 
 
+@app.route('/delTasks', methods=['POST'])
+def delTask():
+    collection.delete_one({'_id' : ObjectId(request.json['id'])})
+    print(request.json['id'])
+    print(collection.find({}, {}))
+    return {'Result' : 'Success'}
 
 
 
