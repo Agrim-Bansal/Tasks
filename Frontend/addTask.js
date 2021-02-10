@@ -37,13 +37,13 @@ sendData = async () => {
 }
 
 date.addEventListener('keydown', (event) => {
-    if (event.isComposing || event.keyCode === 229){
+    if (event.isComposing || event.keyCode === 13){
        b.click()
     }
 })
 
 b.addEventListener('click', async () => {
-
+        b.disabled = true;
         try{
             if (task.value == "" || date.value == ''){
                 return window.alert('Enter Valid values for task and date ')
@@ -68,8 +68,11 @@ b.addEventListener('click', async () => {
             task.value = '';
             date.value = '';
 
+
         }catch(e){
             alert(e);
+        }finally{
+            b.disabled = false;
         }
 
 });
